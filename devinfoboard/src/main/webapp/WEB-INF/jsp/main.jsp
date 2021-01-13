@@ -21,34 +21,30 @@
 	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript">
-       $(document).ready(function(){
-           $.get('/users', function(result){
-               $('body').html(result);
-           });
-       });
 
-    // $(document).ready(function(){
-    //     $("#start_ajax").click(function(){
-    //         $.ajax({
-    //             url : "/users",
-    //             type : "get",
-    //             data : {
-    //                 user_id : "user id",
-    //                 name : "name",
-    //                 email : "email"
-    //             },
+    //$.ajax 방법 사용
+    $(document).ready(function(){
+        $("#start_ajax").click(function(){
+            $.ajax({
+                url : "/users",
+                type : "get",
+                // data : {
+                //     user_id : "user id",
+                //     name : "name",
+                //     email : "email"
+                // },
 
-    //             success : function(result){
-    //                 alert("통신 성공");
-    //                 $("#res").text("결과 : " + result);
-    //             },
+                success : function(result){
+                    alert("통신 성공");
+                    $("#res").text("결과 : " + JSON.stringify(result));
+                },
 
-    //             error : function(xhr, status, error){
-    //                 alert("통신 에러")
-    //             }
-    //         });
-    //     });
-    // });
+                error : function(xhr, status, error){
+                    alert("통신 에러")
+                }
+            });
+        });
+    });
 
     </script>
 
