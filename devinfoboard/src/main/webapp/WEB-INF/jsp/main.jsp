@@ -13,8 +13,14 @@
 
 <body>
 	AJAX TEST
-    <button id="start_ajax"> server 와 통신시작 </button>
+    <button id="btn1"> server 와 통신시작 </button>
     <p><span id="res"></span></p>
+
+    <form id="frm">
+        search name : <input type="text" name="name" id="name"><br>
+    </form>
+        <buttion id ="btn2">serialize</button>
+        <div id="searchresult"></div>
 
     <%-- <script src="/devinfoboard/resource/static/js/" --%>
     <script src="/webjars/jquery/3.5.1/jquery.js"></script>
@@ -24,7 +30,7 @@
 
     //$.ajax 방법 사용
     $(document).ready(function(){
-        $("#start_ajax").click(function(){
+        $("#btn1").click(function(){
             $.ajax({
                 url : "/users",
                 type : "get",
@@ -36,7 +42,7 @@
 
                 success : function(result){
                     alert("통신 성공");
-                    $("#res").text("결과 : " + JSON.stringify(result));
+                    $("#searchresult").text("결과 : " + JSON.stringify(result));
                 },
 
                 error : function(xhr, status, error){
@@ -44,6 +50,21 @@
                 }
             });
         });
+
+        //ajax 2번 search
+        $('#btn2').click(function(){
+        $.ajax({
+            url: "/user",
+            type: "get",
+            data: $("#frm").serialize(),
+            success: function(data){
+                $('#result').text(data);
+            },
+            error: function(){
+                alert("serialize err");
+            }
+        });
+    });
     });
 
     </script>

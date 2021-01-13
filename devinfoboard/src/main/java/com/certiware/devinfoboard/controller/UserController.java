@@ -68,7 +68,7 @@ public class UserController {
     }
 
     //delete all user
-    @DeleteMapping (value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping (value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
     public String deleteUsers(){
 
         userService.deleteUsers();
@@ -77,7 +77,7 @@ public class UserController {
 	}
     
     //search 하기
-    @GetMapping(value = "/users", params = "name", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/user", params = "name", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getUserByName(@RequestParam(value = "name") String name){
 	   return userService.getUserByName(name);
     }
