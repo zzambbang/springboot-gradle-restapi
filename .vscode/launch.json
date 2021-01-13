@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ServletInitializer<devinfoboard>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.certiware.devinfoboard.ServletInitializer",
+            "projectName": "devinfoboard",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-DevinfoboardApplication<devinfoboard>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.certiware.devinfoboard.DevinfoboardApplication",
+            "projectName": "devinfoboard",
+            "args": ""
+        }
+    ]
+}

@@ -22,6 +22,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.webjars:jquery:3.5.1'
+	implementation 'org.webjars:bootstrap:4.3.1'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
@@ -33,8 +35,7 @@ dependencies {
 
 	//spring boot
 	//compile('org.apache.tomcat.embeded:tomcat-embed-jasper')
-	compile('javax.servlet:jstl')
-
+	compile 'javax.servlet:jstl'
 }
 
 test {

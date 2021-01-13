@@ -13,38 +13,44 @@
 
 <body>
 	AJAX TEST
-    <input type = "button" onclick = "javascript:ajax()" value = "ㅠㅠ" />
-    <div><table id = "boardList" border ="1"></table></div>
+    <button id="start_ajax"> server 와 통신시작 </button>
+    <p><span id="res"></span></p>
 
+    <%-- <script src="/devinfoboard/resource/static/js/" --%>
+    <script src="/webjars/jquery/3.5.1/jquery.js"></script>
+	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 
-    <script>
-        
-        $.ajax({
-            type : 'GET',
-            url : '/users'
-            async : false,
-            headers : {
-                "Content-Type" : "application/json"
-            },
+    <script type="text/javascript">
+       $(document).ready(function(){
+           $.get('/users', function(result){
+               $('body').html(result);
+           });
+       });
 
-            dataType : 'json',
-            data : JSON.stringify({
-                "user_id" : user_id,
-                "name" : name,
-                "email" : email
-            }),
+    // $(document).ready(function(){
+    //     $("#start_ajax").click(function(){
+    //         $.ajax({
+    //             url : "/users",
+    //             type : "get",
+    //             data : {
+    //                 user_id : "user id",
+    //                 name : "name",
+    //                 email : "email"
+    //             },
 
-            succeess : function(result) {
-                alert("데이터를 성공적으로 가져왔습니다");
-                console.log(result)
-            },
-            error : function(){
-                alert("에러가 났습니다.");
-            }
-        })
+    //             success : function(result){
+    //                 alert("통신 성공");
+    //                 $("#res").text("결과 : " + result);
+    //             },
+
+    //             error : function(xhr, status, error){
+    //                 alert("통신 에러")
+    //             }
+    //         });
+    //     });
+    // });
 
     </script>
-
 
 </body>
 
