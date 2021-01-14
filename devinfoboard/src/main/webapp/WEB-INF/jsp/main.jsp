@@ -13,13 +13,18 @@
 
 <body>
 	AJAX TEST
+    <br>
+    <br>
     <button id="btn1"> server 와 통신시작 </button>
-    <p><span id="res"></span></p>
+    <p><span id="getresult"></span></p>
 
     <form id="frm">
-        search name : <input type="text" name="name" id="name"><br>
+        name : <input type="text" name="name" id="name"><br>
     </form>
-        <buttion id ="btn2">serialize</button>
+
+    <br>
+
+        <buttion id ="btn2">검색하기</button>
         <div id="searchresult"></div>
 
     <%-- <script src="/devinfoboard/resource/static/js/" --%>
@@ -39,36 +44,44 @@
                 //     name : "name",
                 //     email : "email"
                 // },
-
                 success : function(result){
                     alert("통신 성공");
-                    $("#searchresult").text("결과 : " + JSON.stringify(result));
+                    $("#getresult").text("결과 : " + JSON.stringify(result));
                 },
 
                 error : function(xhr, status, error){
-                    alert("통신 에러")
+                    alert("통신 에러");
                 }
+            });
+
+        });
+
+        $("#btn2").click(function(){
+            var name = $("#name").val()
+
+            //create an formData object
+            //var data = new FormData(form);
+
+            $.ajax({
+                url: "/user?name=" + name,
+                type : "get",
+                //data : form,
+                success : function(name){
+                    $("#searchresult").text(JSON.stringify(name));
+                },
+
+                error : function(xhr, status, error){
+                    alert("검색 실패");
+                }
+
             });
         });
 
-        //ajax 2번 search
-        $('#btn2').click(function(){
-        $.ajax({
-            url: "/user",
-            type: "get",
-            data: $("#frm").serialize(),
-            success: function(data){
-                $('#result').text(data);
-            },
-            error: function(){
-                alert("serialize err");
-            }
-        });
-    });
-    });
+    })
 
     </script>
 
 </body>
 
 </html>
+
