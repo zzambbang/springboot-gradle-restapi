@@ -37,11 +37,26 @@
     <button id="btn2"> 검색하기 </button>
     <p><span id="searchresult"></span></p>
 
+ <%-- jstl 테이블로 보기  --%>
+    <br><br>
+    <button id="btn3"> jstl테이블로 보기 </button>
+    <div><table id ="userList2" border = "1"></table></div>
+
+    <c:set var="List" value="${requestScope['json'].List}"/>
+
+    
+
+
+
+
     <script src="/webjars/jquery/3.5.1/jquery.js"></script>
 	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
 
     <script type="text/javascript">
 
+
+
+// ajax 사용해서 테이블 만들기
     //$.ajax 방법 사용
     $(document).ready(function(){
         $("#btn1").click(function(){
