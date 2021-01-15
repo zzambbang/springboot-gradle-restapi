@@ -27,12 +27,15 @@
     <div><table id ="userList" border = "1"></table></div>
 
     <%-- <p><span id="getresult"></span></p> --%>
-
+    <br>
     <form id="frm">
         name : <input type="text" name="name" id="name"><br>
     </form>
 
     <br>
+
+    <button id="btn2"> 검색하기 </button>
+    <p><span id="searchresult"></span></p>
 
     <script src="/webjars/jquery/3.5.1/jquery.js"></script>
 	<script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
