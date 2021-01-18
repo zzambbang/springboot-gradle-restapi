@@ -1,23 +1,29 @@
-// package com.certiware.devinfoboard.controller;
+package com.certiware.devinfoboard.controller;
 
-// import org.springframework.stereotype.Controller;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.servlet.ModelAndView;
+import com.certiware.devinfoboard.model.User;
 
-// @Controller
-// public class UserlistController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-//     @RequestMapping("/userlist")
-//     public ModelAndView userList(){
-//         ModelAndView view = new ModelAndView();
-//         view.setViewName("userlist");
+@Controller
+public class UserlistController {
 
-//         view.addObject("user_id", "번호");
-//         view.addObject("name", "이름");
-//         view.addObject("email", "이메일");
+    @RequestMapping("/userlist")
+    public ModelAndView userList(){
+        ModelAndView view = new ModelAndView();
 
-//         return view;
+        User user = new User();
 
-//     }
+        user.setUser_id(15);
+        user.setName("jjw");
+        user.setEmail("jjw@kakao.com");
+
+        view.setViewName("userlist"); //이동할 페이지 설정
+
+        return view;
+
+    }
     
-// }
+}
+
