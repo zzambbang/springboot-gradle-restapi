@@ -84,8 +84,6 @@
                     $("#userList").append(str);
                 },
 
-
-
                 error : function(xhr, status, error){
                     alert("통신 에러");
                 }

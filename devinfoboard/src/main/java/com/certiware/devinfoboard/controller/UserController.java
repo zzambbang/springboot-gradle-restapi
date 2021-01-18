@@ -28,6 +28,8 @@ public class UserController {
     @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getAllUsers(){
         return userService.getAllUsers();
+
+        //return "main";
     }
 
     
