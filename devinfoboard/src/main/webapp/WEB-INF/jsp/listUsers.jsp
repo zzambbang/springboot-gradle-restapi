@@ -27,6 +27,9 @@
         <tr width="7%"><b>번호</b></td> 
         <tr width="7%"><b>이름</b></td> 
         <tr width="7%"><b>이메일</b></td> 
+    </tr>
+    
+    <c:forEach items="${userList}"
 
 </body>
 
