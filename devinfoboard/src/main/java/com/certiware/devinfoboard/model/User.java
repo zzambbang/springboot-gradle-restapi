@@ -14,7 +14,7 @@ import lombok.ToString;
 @ToString
 @Entity(name = "users")
 public class User {
-
+    //DAO + DTO와 같은 역할 ..
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int user_id;
