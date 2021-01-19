@@ -1,35 +1,29 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html dir="ltr" lang="ko">
-
+<html>
 <head>
-    <title>jsp로 유저 정보 보기</title>
-    <style>
-    .cls1 {
-        font-size : 40px;
-        text-align : center;
-    }
-    .cls2 {
-        font-size : 20px;
-        text-align : center;
-    }
+<meta charset="UTF-8">
+<title>회원 목록</title>
 </head>
 
 <body>
-    <p class="cls1">회원정보</p>
-    <table align="center" border="1">
-        <tr width="7%"><b>번호</b></td> 
-        <tr width="7%"><b>이름</b></td> 
-        <tr width="7%"><b>이메일</b></td> 
+   <table border="1">
+    <tr>
+        <td>번호</td>
+        <td>이름</td>
+        <td>이메일</td>
     </tr>
-
-    <c:forEach items="${userList}"
+    <c:forEach var="user" items="${users}">
+    <tr>
+        <td>${user.user_id}</td>
+        <td>${user.name}</td>
+        <td>${user.email}</td>
+        
+    </tr>  
+    </c:forEach>
+</table>
 
 </body>
 

@@ -1,7 +1,9 @@
 package com.certiware.devinfoboard.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import com.certiware.devinfoboard.model.User;
 import com.certiware.devinfoboard.service.UserService;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
@@ -17,7 +19,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
+
+// produces = MediaType.APPLICATION_JSON_VALUE 
+//요청을 json type의 데이터만 담고있는 요청을 처리하겠다는 의미
 @RestController
 @RequestMapping("/")
 public class UserController {
@@ -25,12 +31,28 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getAllUsers(){
-        return userService.getAllUsers();
+    @GetMapping(value = "/usersList.do", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ModelAndView getAllUsers(){
 
-        //return "main";
+        ArrayList<User> users = userService.getAllUsersForJstl();
+        
+        ModelAndView mav = new ModelAndView("/listUsers"); //뷰이름직접지정 
+        mav.addObject("users", users);
+
+        return mav;
+
     }
+
+    // @RequestMapping(value = "/users", method = RequestMethod.GET)
+    // public ModelAndView listUsers(HttpServletRequest request, HttpServletResponse response) throws Exception{
+    //     //Stirng viewName = (String)request.getAttribute("viewName");
+    //     List usersList = userService.getAllUsers();
+    //     //ModelAndView mv = new ModelAndView(viewName);
+    //     ModelAndView mav = new ModelAndView("/userlist"); //뷰 이름 지정
+    //     mav.addObject("usersList", usersList);
+
+    //     return mav;
+    // }
 
     
     //create user
@@ -83,5 +105,6 @@ public class UserController {
 	public String getUserByName(@RequestParam(value = "name") String name){
 	   return userService.getUserByName(name);
     }
+
     
 }

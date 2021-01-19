@@ -57,6 +57,23 @@ public class UserService {
         return stringUserJSON;
     }
 
+        //모든 유저 정보 가져오기
+        public ArrayList<User> getAllUsersForJstl() {
+            // ObjectMapper jsonMapper = new ObjectMapper();
+    
+            ArrayList<User> users = (ArrayList<User>) userRepository.findAll();
+            // String stringUserJSON = "";
+            // try{
+            //     stringUserJSON = jsonMapper.writeValueAsString(users);
+            // }catch(JsonProcessingException e){
+            //     e.printStackTrace();
+            // }
+    
+            System.out.println(users.toString());
+    
+            return users;
+        }
+
 
     //한개의 유저만 가져오기
     public String getUser(int id){
