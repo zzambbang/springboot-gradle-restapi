@@ -50,8 +50,7 @@ public class UserController {
         mav.addObject("users", users);
 
         return mav;
-    }
-
+    
 
     
     //create user
